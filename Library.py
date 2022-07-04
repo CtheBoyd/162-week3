@@ -1,4 +1,20 @@
+class LibraryItem:
+    """Items in the library"""
 
+class Patron:
+    """library customer"""
+
+class Library:
+    """inividual library"""
+
+class Book:
+    """item book"""
+
+class Album:
+    """item album"""
+
+class Movie:
+    """item movie"""
 
 
 
