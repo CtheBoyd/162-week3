@@ -1,20 +1,70 @@
 class LibraryItem:
-    """Items in the library"""
+    """class for items in the library"""
+    def __init__(self, library_item_id, title, location, checked_out_by, requested_by, date_checked_out):
+        self._library_item_id = library_item_id
+        self._title = title
+        self._location = location
+        self._checked_out_by = checked_out_by
+        self._requested_by = requested_by
+        self._date_checked_out = date_checked_out
+
+    """get methods for library items"""
+    def get_library_item_id(self):
+        return self._library_item_id
+
+    def get_title(self):
+        return self._title
+
+    def get_location(self):
+        return self._location
+
+    def get_checked_out_by(self):
+        return self._checked_out_by
+
+    def get_requested_by(self):
+        return self._requested_by
+
+    def get_date_checked_out(self):
+        return self._date_checked_out
+
+
+
+class Book(LibraryItem):
+    """item book"""
+    def __init__(self):
+        super().__init__(LibraryItem)
+        pass
+
+class Album(LibraryItem):
+    """item album"""
+    def __init__(self):
+        super().__init__(LibraryItem)
+        pass
+
+class Movie(LibraryItem):
+    """item movie"""
+    def __init__(self):
+        super().__init__(LibraryItem)
+        pass
+
+
 
 class Patron:
     """library customer"""
 
+    def __init__(self):
+        pass
+
+    def add_patron(self, patron_obj):
+        """adds patron"""
+        pass
+
+
 class Library:
-    """inividual library"""
+    """individual library"""
+    pass
 
-class Book:
-    """item book"""
 
-class Album:
-    """item album"""
-
-class Movie:
-    """item movie"""
 
 
 
