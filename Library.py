@@ -121,7 +121,7 @@ class Patron :
         self._patron_id = patron_id
         self._name = name
         self._checked_out_items = []
-        self._fine_amount = 0
+        self._fine_amount = 0.10
 
     """get and set methods for patron class attributes"""
     def get_name(self):
@@ -147,7 +147,7 @@ class Patron :
         """removes library item from patron"""
         self._checked_out_items.remove(lib_item)
 
-    def amend_fine(self,amount):
+    def amend_fine(self, amount):
         """changes patron fine for late items"""
         self._fine_amount += amount
 
@@ -261,12 +261,12 @@ class Library:
 
     def increment_current_date(self):
         """increment current date, increase each Patron's fines by 10 cents for each overdue LibraryItem they have checked out (by calling amend_fine)"""
-
+        self._current_date += 1
         for patron in self._members:
             for item in patron.get_checked_out_items():
                 if (self._current_date - item.get_date_checked_out()) > item.get_check_out_length():
                     patron.amend_fine(0.10)
-                self._current_date += 1
+
 
 
 
