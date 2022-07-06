@@ -266,69 +266,13 @@ class Library:
             for item in patron.get_checked_out_items():
                 if (self._current_date - item.get_date_checked_out()) > item.get_check_out_length():
                     patron.amend_fine(0.10)
-        self._current_date += 1
+                self._current_date += 1
 
 
 
 
 
 
-def main():
-    b1 = Book("345", "Phantom Tollbooth", "Juster")
-    a1 = Album("456", "...And His Orchestra", "The Fastbacks")
-    m1 = Movie("567", "Laputa", "Miyazaki")
-    print(b1.get_author())
-    print(a1.get_artist())
-    print(m1.get_director())
-
-    p1 = Patron("abc", "Felicity")
-    p2 = Patron("bcd", "Waldo")
-
-    lib = Library()
-    lib.add_library_item(b1)
-    lib.add_library_item(a1)
-    lib.add_patron(p1)
-    lib.add_patron(p2)
-
-    lib.check_out_library_item("bcd", "456")
-    for _ in range(7):
-        lib.increment_current_date()  # 7 days pass
-    lib.check_out_library_item("abc", "567")
-    loc = a1.get_location()
-    lib.request_library_item("abc", "456")
-    for _ in range(57):
-        lib.increment_current_date()  # 57 days pass
-    p2_fine = p2.get_fine_amount()
-    lib.pay_fine("bcd", p2_fine)
-    lib.return_library_item("456")
-
-    b1 = Book("123", "War and Peace", "Tolstoy")
-    b2 = Movie("234", "Moby Dick", "Melville")
-    b3 = Movie("345", "Phantom Tollbooth", "Juster")
-    b4 = Movie("456", "Phantom Tollbooth", "Juster")
-    p1 = Patron("abc", "Felicity")
-    p2 = Patron("bcd", "Waldo")
-    lib = Library()
-    lib.add_library_item(b1)
-    lib.add_library_item(b2)
-    lib.add_library_item(b3)
-    lib.add_library_item(b4)
-    lib.add_patron(p1)
-    lib.add_patron(p2)
-    print("p2 request b1:", lib.request_library_item(p2, "123"))
-    print("b1 checked out by p1:", lib.check_out_library_item("abc", "123"))
-    print("Return item 123:", lib.return_library_item("123"))
-    print(Album.get_artist(a1))
-    print(p1.get_patron_id())
-    print(b1.get_author())
-    print(lib.lookup_patron_from_id(p1))
-    print(lib.lookup_patron_from_id("bcd"))
-    print(lib.lookup_library_item_from_id("abc"))
-
-
-
-if __name__ == '__main__':
-    main()
 
 
 
